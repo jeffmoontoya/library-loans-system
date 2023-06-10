@@ -19,6 +19,7 @@ class CreateLendsTable extends Migration
             $table->date('date_in');
             $table->enum('status', ['lend', 'returned']);
             $table->timestamps();
+			$table->softDeletes(); // Add this line to create the `deleted_at` column
 
             $table->foreign('owner_user_id')
                 ->references('id')

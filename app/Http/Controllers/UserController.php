@@ -26,6 +26,13 @@ class UserController extends Controller
 		return response()->json(['users' => $users], 200); //devuelve datos en arreglo asociativo
 	}
 
+
+	public function getAllLendsByUser(User $user)
+	{
+		$customerLends =  $user->load('CustomerLends.Book.Category','CustomerLends.Book.Category')->CustomerLends;
+		return response()->json(['customer_lends' => $user], 200);
+	}
+
 	/**
 	 * Obtiene un usuario específico.
 	 *
