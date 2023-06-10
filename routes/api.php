@@ -11,6 +11,7 @@ Route::group(['prefix' => 'Users', 'controller'=> UserController::class], functi
 	Route::get('/GetAllUsers' , 'getAllUsers'); //GET -> traer data;
 	Route::get('/GetAnUser/{user}' , 'getAnUser'); //GET -> traer data;
 	Route::get('/GetAllLendsByUser/{user}' , 'getAllLendsByUser'); //GET -> traer data;
+	Route::get('/GetAllUsersWithLends/' , 'getAllUsersWithLends');
 	Route::post('/CreateUser' , 'createUser'); //POST -> Crear data;
 	Route::put('/UpdateUser/{user}' , 'updateUser'); //PUT -> Actualizar data;
 	Route::delete('/DeleteUser/{user}' , 'deleteUser'); //DELETE -> Eliminar data;

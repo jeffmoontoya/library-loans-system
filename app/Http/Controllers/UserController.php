@@ -32,6 +32,12 @@ class UserController extends Controller
 		return response()->json(['customer_lends' => $customerLends], 200);
 	}
 
+	public function getAllUsersWithLends()
+	{
+		$users = User::with("CustomerLends.Book")->get();
+		return response()->json(['users' => $users], 200);
+	}
+
 	/**
 	 * Obtiene un usuario específico.
 	 *
