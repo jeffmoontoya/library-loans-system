@@ -34,7 +34,7 @@ class UserController extends Controller
 
 	public function getAllUsersWithLends()
 	{
-		$users = User::with("CustomerLends.Book")->get();
+		$users = User::with("CustomerLends.Book")->has("CustomerLends")->get();
 		return response()->json(['users' => $users], 200);
 	}
 
