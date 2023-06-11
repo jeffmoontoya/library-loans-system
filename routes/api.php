@@ -20,10 +20,10 @@ Route::group(['prefix' => 'Users', 'controller'=> UserController::class], functi
 
 Route::group(['prefix' => 'Lends', 'controller'=> LendController::class], function () {
 
-   Route::post('/CreateLend' , 'createLend'); //POST -> Crear data:
-
-//    Route::get('/GetAnUser/{user}' , 'getAnUser'); //GET -> traer data;
-//    Route::post('CreateUser' , 'createUser'); //POST -> Crear data;
-//    Route::put('UpdateUser/{user}' , 'updateUser'); //PUT -> Actualizar data;
-//    Route::delete('DeleteUser/{user}' , 'deleteUser'); //DELETE -> Eliminar data;
+	Route::get('/GetAnLend/{lend}' , 'getAnLend');
+	Route::get('/GetAllLends' , 'getAllLends');
+    Route::post('/CreateLend' , 'createLend');
+	Route::put('/UpdateLend/{lend}' , 'updateLend');
+	Route::delete('/DeleteLend/{lend}' , 'deleteLend');
 });
+
