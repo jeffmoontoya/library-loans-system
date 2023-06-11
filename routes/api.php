@@ -6,24 +6,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 // Define un grupo de rutas con el prefijo '/users'
-Route::group(['prefix' => 'Users', 'controller'=> UserController::class], function () {
-	 // Aquí se pueden definir las rutas relacionadas con la gestión de usuarios
-	Route::get('/GetAllUsers' , 'getAllUsers'); //GET -> traer data;
-	Route::get('/GetAnUser/{user}' , 'getAnUser'); //GET -> traer data;
-	Route::get('/GetAllLendsByUser/{user}' , 'getAllLendsByUser'); //GET -> traer data;
-	Route::get('/GetAllUsersWithLends/' , 'getAllUsersWithLends');
-	Route::post('/CreateUser' , 'createUser'); //POST -> Crear data;
-	Route::put('/UpdateUser/{user}' , 'updateUser'); //PUT -> Actualizar data;
-	Route::delete('/DeleteUser/{user}' , 'deleteUser'); //DELETE -> Eliminar data;
+Route::group(['prefix' => 'Users', 'controller' => UserController::class], function () {
+	// Aquí se pueden definir las rutas relacionadas con la gestión de usuarios
+	Route::get('/GetAllUsers', 'getAllUsers'); //GET -> traer data;
+	Route::get('/GetAnUser/{user}', 'getAnUser'); //GET -> traer data;
+	Route::get('/GetAllLendsByUser/{user}', 'getAllLendsByUser'); //GET -> traer data;
+	Route::get('/GetAllUsersWithLends/', 'getAllUsersWithLends');
+	Route::post('/CreateUser', 'createUser'); //POST -> Crear data;
+	Route::put('/UpdateUser/{user}', 'updateUser'); //PUT -> Actualizar data;
+	Route::delete('/DeleteUser/{user}', 'deleteUser'); //DELETE -> Eliminar data;
 });
 
 
-Route::group(['prefix' => 'Lends', 'controller'=> LendController::class], function () {
+Route::group(['prefix' => 'Lends', 'controller' => LendController::class], function () {
 
-	Route::get('/GetAnLend/{lend}' , 'getAnLend');
-	Route::get('/GetAllLends' , 'getAllLends');
-    Route::post('/CreateLend' , 'createLend');
-	Route::put('/UpdateLend/{lend}' , 'updateLend');
-	Route::delete('/DeleteLend/{lend}' , 'deleteLend');
+	Route::get('/GetAnLend/{lend}', 'getAnLend');
+	Route::get('/GetAllLends', 'getAllLends');
+	Route::post('/CreateLend', 'createLend');
+	Route::put('/UpdateLend/{lend}', 'updateLend');
+	Route::delete('/DeleteLend/{lend}', 'deleteLend');
 });
-
