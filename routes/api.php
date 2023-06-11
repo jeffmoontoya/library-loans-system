@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\LendController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\LendController;
 use App\Http\Controllers\UserController;
 
 // Define un grupo de rutas con el prefijo '/users'
@@ -25,4 +26,14 @@ Route::group(['prefix' => 'Lends', 'controller' => LendController::class], funct
 	Route::post('/CreateLend', 'createLend');
 	Route::put('/UpdateLend/{lend}', 'updateLend');
 	Route::delete('/DeleteLend/{lend}', 'deleteLend');
+});
+
+
+Route::group(['prefix' => 'Books', 'controller' => BookController::class], function () {
+
+	Route::get('/GetABook/{book}', 'getABook');
+	Route::get('/GetAllBooks', 'getAllBooks');
+	Route::post('/CreateBook', 'createBook');
+	Route::put('/UpdateBook/{book}', 'updateBook');
+	Route::delete('/DeleteBook/{book}', 'deleteBook');
 });

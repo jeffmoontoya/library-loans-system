@@ -26,8 +26,6 @@ class LendController extends Controller
 	public function createLend(CreateLendRequest $request)
 	{
 		$Lend = new Lend($request->all());
-		//$Lend -> owner_user_id = $owner;
-		//$Lend -> customer_user_id = $customer;
 		$Lend->save();
 		return response()->json(['lend' => $Lend], 201);
 	}
