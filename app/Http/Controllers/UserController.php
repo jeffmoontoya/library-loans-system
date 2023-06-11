@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\CreateUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -70,7 +71,7 @@ class UserController extends Controller
 	 * @param  \Illuminate\Http\Request $request
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function updateUser(user $user, Request $request)
+	public function updateUser(user $user, UpdateUserRequest $request)
 	{
 		$user->update($request->all());
 		return response()->json(['user' => $user->refresh()], 201);
