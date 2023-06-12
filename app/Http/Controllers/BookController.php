@@ -16,6 +16,11 @@ class BookController extends Controller
 		return response()->json(['book' => $book], 200);
 	}
 
+	public function showHomeWithBooks()
+	{
+		$books = $this->getAllBooks()->original['books'];
+		return view('index', compact('books'));
+	}
 	/**
 	 * Obtener todos los libros.
 	 */

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use index;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\CreateUserRequest;
@@ -14,6 +15,9 @@ class UserController extends Controller
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
+
+
+
 	public function getAllUsers()
 	{
 		//$users = User::all(); Trae todos los usuarios
@@ -87,5 +91,15 @@ class UserController extends Controller
 	{
 		$user->delete();
 		return response()->json([], 204);
+	}
+
+	public function showAllUsers()
+	{
+		$users =  $this->getAllUsers()->original['users'];
+		return view('users.index', compact('users'));
+	}
+	public function showCreateUser()
+	{
+		return view('users.create-user');
 	}
 }
