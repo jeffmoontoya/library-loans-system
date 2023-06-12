@@ -1,18 +1,27 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ConfirmPasswordController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 
+Route::get('/', [BookController::class, 'showHomeWithBooks'])->name('home');
 
-Route::view('/', 'home');
+// Users
+Route::group(['prefix' => 'Users', 'controller' => UserController::class], function () {
+	Route::get('/', 'showAllUsers')->name('users');
+	Route::get('/CreateUser', 'showCreateUser')->name('user.create');
+	Route::get('/EditUser/{user}', 'showEditUser')->name('user.edit');
+
+	Route::post('/CreateUser', 'createUser')->name('user.create.post');
+	Route::put('/EditUser/{user}', 'updateUser')->name('user.edit.put');
+	Route::delete('/DeleteUser/{user}', 'deleteUser')->name('user.delete');
+});
+
 
 Route::group(['controller' => LoginController::class], function () {
 	// Login Routes...
@@ -62,13 +71,4 @@ Route::group(['controller' => VerificationController::class], function () {
 
 	Route::post('email/resend', 'resend')
 		->name('verification.resend');
-});
-
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/', [BookController::class, 'showHomeWithBooks'])->name('home');
-// Users
-Route::group(['prefix' => 'Users', 'controller' => UserController::class], function () {
-	Route::get('/', 'showAllUsers')->name('users');
-	Route::get('/CreateUser', 'showCreateUser')->name('user.create');
 });
