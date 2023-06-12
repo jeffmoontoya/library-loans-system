@@ -2,11 +2,11 @@
 import './bootstrap';
 import { createApp } from 'vue';
 //Components
-import ExampleComponent from './components/ExampleComponent.vue';
+import BooksList from './components/Books/index.vue';
 
 const app = createApp({
 	components:{
-		ExampleComponent
+		BooksList
 	}
 });
 

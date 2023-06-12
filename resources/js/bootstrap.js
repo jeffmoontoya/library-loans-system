@@ -7,5 +7,5 @@ window._ = _;
 window.axios = axios;
 window.swal = swal;
 window.bootstrap = bootstrap;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // ajax
 

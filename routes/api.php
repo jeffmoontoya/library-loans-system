@@ -32,7 +32,7 @@ Route::group(['prefix' => 'Lends', 'controller' => LendController::class], funct
 Route::group(['prefix' => 'Books', 'controller' => BookController::class], function () {
 
 	Route::get('/GetABook/{book}', 'getABook');
-	Route::get('/GetAllBooks', 'getAllBooks');
+	Route::get('/GetAllBooks', 'getAllBooks')->name('books');
 	Route::post('/CreateBook', 'createBook');
 	Route::put('/UpdateBook/{book}', 'updateBook');
 	Route::delete('/DeleteBook/{book}', 'deleteBook');

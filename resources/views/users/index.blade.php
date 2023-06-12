@@ -1,6 +1,5 @@
 <x-app>
     <div class="card mx-5 my-5">
-
         <div class="card-header d-flex justify-content-between">
             <h2>Users</h2>
             <a href="{{ route('user.create') }}" class="btn btn-primary">Crear usuario</a>
@@ -17,6 +16,7 @@
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
@@ -24,12 +24,14 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->email }}</td>
+
                             <td class="d-flex">
-                                <a href="{{ route('user.edit', ['user' => $user->id]) }}"
-                                    class="btn btn-warning btn-sm me-1">Editar</a>
+                                <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-warning btn-sm me-1">Editar</a>
+
                                 <form action="{{ route('user.delete', ['user' => $user->id]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
+
                                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                 </form>
                             </td>
