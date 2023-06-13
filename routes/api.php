@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LendController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
+
+
 
 // Define un grupo de rutas con el prefijo '/users'
 Route::group(['prefix' => 'Users', 'controller' => UserController::class], function () {
@@ -12,7 +16,7 @@ Route::group(['prefix' => 'Users', 'controller' => UserController::class], funct
 	Route::get('/GetAllUsers', 'getAllUsers'); //GET -> traer data;
 	Route::get('/GetAnUser/{user}', 'getAnUser'); //GET -> traer data;
 	Route::get('/GetAllLendsByUser/{user}', 'getAllLendsByUser'); //GET -> traer data;
-	Route::get('/GetAllUsersWithLends/', 'getAllUsersWithLends');
+	Route::get('/GetAllUsersWithLends/', 'getAllUsersWithLends'); //GET -> traer data;
 	Route::post('/CreateUser', 'createUser'); //POST -> Crear data;
 	Route::put('/UpdateUser/{user}', 'updateUser'); //PUT -> Actualizar data;
 	Route::delete('/DeleteUser/{user}', 'deleteUser'); //DELETE -> Eliminar data;
@@ -32,8 +36,17 @@ Route::group(['prefix' => 'Lends', 'controller' => LendController::class], funct
 Route::group(['prefix' => 'Books', 'controller' => BookController::class], function () {
 
 	Route::get('/GetABook/{book}', 'getABook');
+	Route::post('/SaveBook', 'saveBook');
 	Route::get('/GetAllBooks', 'getAllBooks')->name('books');
 	Route::post('/CreateBook', 'createBook');
 	Route::put('/UpdateBook/{book}', 'updateBook');
 	Route::delete('/DeleteBook/{book}', 'deleteBook');
+});
+
+Route::group(['prefix' => 'Categories', 'controller' => CategoryController::class], function () {
+	Route::get('/GetAllCategories', 'getAllCategories');
+});
+
+Route::group(['prefix' => 'Authors', 'controller' => AuthorController::class], function () {
+	Route::get('/GetAllAuthors', 'getAllAuthors');
 });

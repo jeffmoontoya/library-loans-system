@@ -4,6 +4,7 @@
 			<tr>
 				<th>Titulo</th>
 				<th>Autor</th>
+				<th>Categoria</th>
 				<th>Stock</th>
 				<th>Acciones</th>
 			</tr>

@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Book\CreateBookRequest;
 use App\Http\Requests\Book\UpdateBookRequest;
 use App\Models\Book;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+	// Guardar un libro desde modal
+	public function saveBook(Request $request)
+	{
+		$book = new Book($request->all());
+		$book->save();
+		return response()->json(['book' => $book], 200);
+	}
+
 	// Mostrar todos los libros en vista libros
 	public function showBooks()
 	{
